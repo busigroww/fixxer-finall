@@ -1,0 +1,208 @@
+/* Accessibility enhancements */
+:focus {
+    outline: 3px solid var(--primary-color);
+    outline-offset: 2px;
+}
+
+/* Skip to content link for keyboard users */
+.skip-to-content {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: var(--primary-color);
+    color: white;
+    padding: 8px 16px;
+    z-index: 1001;
+    transition: top 0.3s;
+}
+
+.skip-to-content:focus {
+    top: 0;
+}
+
+/* Improved color contrast */
+.section-tag {
+    color: #000000; /* Darker text for better contrast on yellow */
+    font-weight: 700;
+}
+
+.price-tag {
+    color: #000000; /* Darker text for better contrast on yellow */
+    font-weight: 700;
+}
+
+/* Improved focus states for interactive elements */
+button:focus,
+a:focus,
+input:focus,
+textarea:focus,
+select:focus {
+    outline: 3px solid var(--primary-color);
+    outline-offset: 2px;
+}
+
+/* Larger touch targets for mobile */
+@media (max-width: 768px) {
+    .btn,
+    .nav-link,
+    .footer-links a,
+    .social-icons a {
+        min-height: 44px;
+        min-width: 44px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+        padding: 14px 16px; /* Larger input fields on mobile */
+    }
+    
+    /* Improved spacing for mobile */
+    .container {
+        padding: 0 16px;
+    }
+    
+    section {
+        padding: 50px 0;
+    }
+    
+    .search-section {
+        padding-top: 90px;
+    }
+    
+    /* Ensure text is readable on small screens */
+    body {
+        font-size: 16px;
+    }
+    
+    h1 {
+        font-size: 1.75rem;
+    }
+    
+    h2 {
+        font-size: 1.5rem;
+    }
+    
+    h3 {
+        font-size: 1.25rem;
+    }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+    :root {
+        --primary-color: #b91c1c;
+        --secondary-color: #eab308;
+    }
+    
+    body {
+        color: #000000;
+        background-color: #ffffff;
+    }
+    
+    .btn-primary {
+        background-color: #000000;
+        color: #ffffff;
+    }
+    
+    .footer,
+    .testimonials-section {
+        background-color: #000000;
+        color: #ffffff;
+    }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation: none !important;
+        transition: none !important;
+    }
+    
+    .service-card:hover,
+    .btn:hover {
+        transform: none !important;
+    }
+}
+
+/* Better responsive images */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Improved form validation styles */
+input:invalid,
+textarea:invalid,
+select:invalid {
+    border-color: #dc2626;
+}
+
+/* Aria-live region for search results */
+.search-results {
+    aria-live: polite;
+}
+
+/* Improved modal accessibility */
+.modal-content {
+    max-height: 80vh;
+    overflow-y: auto;
+}
+
+/* Ensure proper heading hierarchy */
+.section-header h2 {
+    margin-top: 0;
+}
+
+/* Improved keyboard navigation */
+.nav-link:focus-visible,
+.btn:focus-visible,
+.footer-links a:focus-visible {
+    outline: 3px solid var(--primary-color);
+    outline-offset: 2px;
+}
+
+/* Ensure text doesn't get too small */
+@media (max-width: 320px) {
+    body {
+        font-size: 16px;
+    }
+    
+    .container {
+        padding: 0 12px;
+    }
+}
+
+/* Print styles */
+@media print {
+    .header,
+    .footer,
+    .whatsapp-btn,
+    .mobile-nav,
+    .search-section {
+        display: none;
+    }
+    
+    body {
+        color: #000;
+        background: #fff;
+    }
+    
+    a {
+        text-decoration: underline;
+        color: #000;
+    }
+    
+    .container {
+        width: 100%;
+        max-width: 100%;
+    }
+    
+    section {
+        page-break-inside: avoid;
+    }
+}

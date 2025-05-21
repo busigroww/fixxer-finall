@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fixxer - Best Appliance Repair Service in Patna, Bihar | AC, Refrigerator, Washing Machine Repair</title>
+    <meta name="description" content="Fixxer provides professional appliance repair services in Patna, Bihar. Expert technicians for AC repair, refrigerator repair, washing machine repair with 45-day warranty. Authorized service center for Samsung, LG, Whirlpool, Godrej and all major brands.">
+    <meta name="keywords" content="appliance repair Patna, AC repair Patna, refrigerator repair Patna, washing machine repair Patna, Samsung service center Patna, LG service center Patna, Godrej service center Patna, Whirlpool service center Patna, appliance repair Bihar, home appliance repair, AC service Patna, AC installation Patna">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="accessibility.css">
+</head>
+<body>
+    <!-- Skip to content link for accessibility -->
+    <a href="#main-content" class="skip-to-content">Skip to content</a>
+    
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <img src="images/logo.png" alt="Fixxer Logo">
+                </div>
+                <nav class="desktop-nav">
+                    <ul>
+                        <li><a href="#home" class="nav-link">Home</a></li>
+                        <li><a href="#services" class="nav-link">Services</a></li>
+                        <li><a href="#about" class="nav-link">About</a></li>
+                        <li><a href="#contact" class="nav-link">Contact</a></li>
+                    </ul>
+                    <button class="btn btn-primary" id="bookNowBtn">Book Now</button>
+                </nav>
+                <div class="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Navigation -->
+    <div class="mobile-nav">
+        <ul>
+            <li><a href="#home" class="nav-link">Home</a></li>
+            <li><a href="#services" class="nav-link">Services</a></li>
+            <li><a href="#about" class="nav-link">About</a></li>
+            <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+        <button class="btn btn-primary" id="mobileBookBtn">Book Now</button>
+    </div>
+
+    <!-- Search Bar Section -->
+    <section class="search-section" id="search">
+        <div class="container">
+            <div class="search-content">
+                <div class="section-tag">SPARE PARTS PRICE CHECK</div>
+                <h2>Find the exact price for your appliance spare parts</h2>
+                <div class="search-container">
+                    <input type="text" id="searchInput" placeholder="Search for spare parts (e.g., SAMSUNG SPIN CAP, LG WASH PULLY)" aria-label="Search for spare parts">
+                    <select id="brandFilter" aria-label="Filter by brand">
+                        <option value="">All Brands</option>
+                        <option value="SAMSUNG">Samsung</option>
+                        <option value="LG">LG</option>
+                        <option value="WHIRLPOOL">Whirlpool</option>
+                        <option value="VIDEOCON">Videocon</option>
+                        <option value="GODREJ">Godrej</option>
+                        <option value="IFB">IFB</option>
+                        <option value="HAIER">Haier</option>
+                        <option value="PANASONIC">Panasonic</option>
+                        <option value="ONIDA">Onida</option>
+                        <option value="BOSCH">Bosch</option>
+                    </select>
+                    <button class="search-btn" aria-label="Search"><i class="fas fa-search"></i></button>
+                </div>
+                <div id="searchResults" class="search-results" aria-live="polite"></div>
+                <p class="search-info">Search from our database of 783 spare parts with up-to-date pricing</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main id="main-content">
+        <!-- Hero Section -->
+        <section class="hero-section" id="home">
+            <div class="container">
+                <div class="hero-content">
+                        <div class="hero-text">
+                    <h1>Your Trusted Appliance <span>Repair Partner in Patna</span></h1>
+                    <p>Fast, reliable repairs for your home appliances by expert technicians in Patna, Bihar. Quick service, lasting solutions, and competitive pricing for AC repair, refrigerator repair, and washing machine repair!</p>
+                    <div class="warranty-badge">
+                        <i class="fas fa-shield-alt"></i>
+                        <div class="warranty-text">
+                            <strong>45-Day Warranty</strong>
+                            <p>On all services and spare parts</p>
+                        </div>
+                    </div>
+                        </div>
+                        <div class="hero-buttons">
+                            <button class="btn btn-primary">Book an Appointment</button>
+                            <a href="#services" class="btn btn-outline">Our Services</a>
+                        </div>
+                        <div class="trust-indicators">
+                            <div class="customer-avatars">
+                                <img src="images/abstract-user1.png" alt="Customer">
+                                <img src="images/abstract-user2.png" alt="Customer">
+                                <img src="images/abstract-user3.png" alt="Customer">
+                            </div>
+                            <div class="rating">
+                                <div class="stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <p>Trusted by 1000+ customers</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hero-image">
+                        <img src="images/hero.jpg" alt="Appliance Repair">
+                    </div>
+                </div>
+            </div>
+        </section>        <section class="services-section" id="services">
+            <div class="container">
+                <div class="section-header">
+                    <div class="section-tag">OUR SERVICES IN PATNA</div>
+                    <h2>Professional Appliance Repair Services in Patna, Bihar</h2>
+                    <p>We offer a wide range of appliance repair services to meet your needs in Patna and surrounding areas. Our expert technicians are trained to handle all major brands and models including Samsung, LG, Whirlpool, Godrej, and more.</p>
+                </div>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-snowflake"></i>
+                        </div>
+                        <div class="price-tag">Starting at ₹499</div>
+                        <h3>AC Repair & Service in Patna</h3>
+                        <p>Professional AC repair, installation, and maintenance services for all types of air conditioners in Patna. We service all areas including Boring Road, Kankarbagh, Rajendra Nagar, and Patliputra Colony.</p>
+                        <div class="warranty-info">
+                            <i class="fas fa-shield-alt"></i> 45-Day Warranty
+                        </div>
+                    </div>
+                    <div class="service-card highlight-service">
+                        <div class="service-icon">
+                            <i class="fas fa-tint-slash"></i>
+                        </div>
+                        <div class="price-tag">Special Offer: ₹49 Only!</div>
+                        <h3>Washing Machine Repair in Patna</h3>
+                        <p>Expert repair services for all types of washing machines in Patna, including front load and top load models from Samsung, LG, IFB, Whirlpool, and other major brands.</p>
+                        <div class="warranty-info">
+                            <i class="fas fa-shield-alt"></i> 45-Day Warranty
+                        </div>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-temperature-low"></i>
+                        </div>
+                        <div class="price-tag">Special Offer: ₹49 Only!</div>
+                        <h3>Refrigerator Repair in Patna</h3>
+                        <p>Comprehensive refrigerator repair services in Patna for all types including single door, double door, and side-by-side models from Godrej, Samsung, LG, Whirlpool, and other brands.</p>
+                        <div class="warranty-info">
+                            <i class="fas fa-shield-alt"></i> 45-Day Warranty
+                        </div>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-utensils"></i>
+                        </div>
+                        <div class="price-tag">Starting at ₹349</div>
+                        <h3>Microwave Repair in Patna</h3>
+                        <p>Professional microwave repair services in Patna for all types including solo, grill, and convection models. Serving all areas of Patna including Gandhi Maidan, Danapur, Bailey Road, and Saguna More.</p>
+                        <div class="warranty-info">
+                            <i class="fas fa-shield-alt"></i> 45-Day Warranty
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <section class="services-section" id="services">
+            <div class="container">
+                <div class="section-header">
+                    <div class="section-tag">OUR SERVICES IN PATNA</div>
+                    <h2>Professional Appliance Repair Services in Patna, Bihar</h2>
+                    <p>We offer a wide range of appliance repair services to meet your needs in Patna and surrounding areas. Our expert technicians are trained to handle all major brands and models including Samsung, LG, Whirlpool, Godrej, and more.</p>
+                </div>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-snowflake"></i>
+                        </div>
+                        <div class="price-tag">Starting at ₹499</div>
+                        <h3>AC Repair & Service in Patna</h3>
+                        <p>Professional AC repair, installation, and maintenance services for all types of air conditioners in Patna. We service all areas including Boring Road, Kankarbagh, Rajendra Nagar, and Patliputra Colony.</p>
+                        <div class="warranty-info">
+                            <i class="fas fa-shield-alt"></i> 45-Day Warranty
+                        </div>
+                    </div>
+                    <div class="service-card highlight-service">
+                        <div class="service-icon">
+                            <i class="fas fa-tint-slash"></i>
+                        </div>
+                        <div class="price-tag">Special Offer: ₹49 Only!</div>
+                        <h3>Washing Machine Repair in Patna</h3>
+                        <p>Expert repair services for all types of washing machines in Patna, including front load and top load models from Samsung, LG, IFB, Whirlpool, and other major brands.</p>
+                        <div class="warranty-info">
+                            <i class="fas fa-shield-alt"></i> 45-Day Warranty
+                        </div>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-temperature-low"></i>
+                        </div>
+                        <div class="price-tag">Special Offer: ₹49 Only!</div>
+                        <h3>Refrigerator Repair in Patna</h3>
+                        <p>Comprehensive refrigerator repair services in Patna for all types including single door, double door, and side-by-side models from Godrej, Samsung, LG, Whirlpool, and other brands.</p>
+                        <div class="warranty-info">
+                            <i class="fas fa-shield-alt"></i> 45-Day Warranty
+                        </div>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-utensils"></i>
+                        </div>
+                        <div class="price-tag">Starting at ₹349</div>
+                        <h3>Microwave Repair in Patna</h3>
+                        <p>Professional microwave repair services in Patna for all types including solo, grill, and convection models. Serving all areas of Patna including Gandhi Maidan, Danapur, Bailey Road, and Saguna More.</p>
+                        <div class="warranty-info">
+                            <i class="fas fa-shield-alt"></i> 45-Day Warranty
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+                        <p>Comprehensive service for all your home appliance needs.</p>
+                        <div class="warranty-info">
+                            <i class="fas fa-shield-alt"></i> 45-Day Warranty
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Brands Section -->
+        <section class="brands-section">
+            <div class="container">
+                <div class="section-header">
+                    <div class="section-tag">BRANDS WE SERVICE</div>
+                    <h2>We repair all major appliance brands in Patna, Bihar</h2>
+                </div>
+                <div class="brands-carousel-container">
+                    <div class="brands-carousel">
+                        <div class="brands-slide">
+                            <img src="images/samsung.png" alt="Samsung Service Center in Patna" class="brand-logo">
+                            <img src="images/lg.png" alt="LG Service Center in Patna" class="brand-logo">
+                            <img src="images/whirlpool.png" alt="Whirlpool Service Center in Patna" class="brand-logo">
+                            <img src="images/godrej.png" alt="Godrej Service Center in Patna" class="brand-logo">
+                            <img src="images/ifb.png" alt="IFB Service Center in Patna" class="brand-logo">
+                            <img src="images/haier.png" alt="Haier Service Center in Patna" class="brand-logo">
+                        </div>
+                        <div class="brands-slide">
+                            <img src="images/panasonic.png" alt="Panasonic Service Center in Patna" class="brand-logo">
+                            <img src="images/hitachi.png" alt="Hitachi Service Center in Patna" class="brand-logo">
+                            <img src="images/daikin.png" alt="Daikin Service Center in Patna" class="brand-logo">
+                            <img src="images/voltas.png" alt="Voltas Service Center in Patna" class="brand-logo">
+                            <img src="images/carrier.png" alt="Carrier Service Center in Patna" class="brand-logo">
+                            <img src="images/general.png" alt="General Service Center in Patna" class="brand-logo">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section class="about-section" id="about">
+            <div class="container">
+                <div class="about-content">
+                    <div class="about-image">
+                        <img src="images/about2.png" alt="Technician repairing appliance">
+                    </div>
+                    <div class="about-text">
+                        <div class="section-tag">ABOUT FIXXER</div>
+                        <h2>We ensure swift and professional appliance repairs you can trust</h2>
+                        <p>At Fixxer, we pride ourselves on delivering quick, reliable, and professional appliance repair services. Our team of skilled technicians is committed to getting your appliances back in working order with minimal disruption to your daily life.</p>
+                        <div class="features-grid">
+                            <div class="feature">
+                                <div class="feature-icon">
+                                    <i class="fas fa-check"></i>
+                                </div>
+                                <div class="feature-text">
+                                    <h4>Expert Technicians</h4>
+                                    <p>Highly trained professionals with years of experience</p>
+                                </div>
+                            </div>
+                            <div class="feature">
+                                <div class="feature-icon">
+                                    <i class="fas fa-check"></i>
+                                </div>
+                                <div class="feature-text">
+                                    <h4>Quick Response</h4>
+                                    <p>Same-day service for urgent repair needs</p>
+                                </div>
+                            </div>
+                            <div class="feature">
+                                <div class="feature-icon">
+                                    <i class="fas fa-check"></i>
+                                </div>
+                                <div class="feature-text">
+                                    <h4>Quality Parts</h4>
+                                    <p>Genuine replacement parts for lasting repairs</p>
+                                </div>
+                            </div>
+                            <div class="feature">
+                                <div class="feature-icon">
+                                    <i class="fas fa-check"></i>
+                                </div>
+                                <div class="feature-text">
+                                    <h4>Transparent Pricing</h4>
+                                    <p>No hidden fees, clear upfront pricing</p>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="btn btn-primary">Learn More About Us</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section class="testimonials-section">
+            <div class="container">
+                <div class="section-header">
+                    <div class="section-tag">TESTIMONIALS</div>
+                    <h2>What Our Customers Say</h2>
+                    <p>Don't just take our word for it. Here's what our satisfied customers have to say about our services.</p>
+                </div>
+                <div class="testimonials-slider">
+                    <div class="testimonial active">
+                        <div class="testimonial-content">
+                            <div class="customer-image">
+                                <img src="images/abstract-user1.png" alt="Rajesh Kumar">
+                            </div>
+                            <p class="testimonial-text">"Fixxer ने मेरे AC की सर्विसिंग बहुत अच्छे से की। टेक्निशियन समय पर आया और बहुत प्रोफेशनल था। 45 दिन की वारंटी भी मिली। अब AC एकदम नए जैसा चल रहा है!"</p>
+                            <h4>Rajesh Kumar</h4>
+                            <p class="customer-title">Delhi</p>
+                        </div>
+                    </div>
+                    <div class="testimonial">
+                        <div class="testimonial-content">
+                            <div class="customer-image">
+                                <img src="images/abstract-user2.png" alt="Priya Sharma">
+                            </div>
+                            <p class="testimonial-text">"मेरा फ्रिज अचानक काम करना बंद कर दिया था। Fixxer के टेक्निशियन ने उसी दिन आकर इसे ठीक किया और स्पेयर पार्ट्स पर 45 दिन की वारंटी दी। सर्विस और कीमत दोनों बहुत अच्छे हैं।"</p>
+                            <h4>Priya Sharma</h4>
+                            <p class="customer-title">Mumbai</p>
+                        </div>
+                    </div>
+                    <div class="testimonial">
+                        <div class="testimonial-content">
+                            <div class="customer-image">
+                                <img src="images/abstract-user3.png" alt="Venkatesh Iyer">
+                            </div>
+                            <p class="testimonial-text">"Fixxer's service was excellent. They repaired my washing machine and provided a 45-day warranty on both service and spare parts. The technician was very knowledgeable and professional."</p>
+                            <h4>Venkatesh Iyer</h4>
+                            <p class="customer-title">Bangalore</p>
+                        </div>
+                    </div>
+                    <div class="testimonial">
+                        <div class="testimonial-content">
+                            <div class="customer-image">
+                                <img src="images/abstract-user4.png" alt="Ananya Patel">
+                            </div>
+                            <p class="testimonial-text">"मेरे वॉशिंग मशीन में पानी लीक हो रहा था। Fixxer के टेक्निशियन ने सही पार्ट्स बदलकर समस्या हल कर दी। 45 दिन की वारंटी मिली और अब मशीन बिल्कुल नई जैसी काम कर रही है।"</p>
+                            <h4>Ananya Patel</h4>
+                            <p class="customer-title">Ahmedabad</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-dots">
+                    <div class="dot active" data-index="0"></div>
+                    <div class="dot" data-index="1"></div>
+                    <div class="dot" data-index="2"></div>
+                    <div class="dot" data-index="3"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="contact-section" id="contact">
+            <div class="container">
+                <div class="section-header">
+                    <div class="section-tag">CONTACT US</div>
+                    <h2>Get in Touch With Our Team</h2>
+                    <p>Have questions or need to schedule a service? Contact us today!</p>
+                </div>
+                <div class="contact-content">
+                    <div class="contact-info">
+                        <h3>Contact Information</h3>
+                        <p>Reach out to us through any of the following channels:</p>
+                        <div class="contact-details">
+                            <div class="contact-item">
+                                <div class="contact-icon">
+                                    <i class="fas fa-phone-alt"></i>
+                                </div>
+                                <div class="contact-text">
+                                    <h4>Phone</h4>
+                                    <p>+91 7004771388</p>
+                                </div>
+                            </div>
+                            <div class="contact-item">
+                                <div class="contact-icon">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <div class="contact-text">
+                                    <h4>Email</h4>
+                                    <p>Tanzeelkhan78687@gmail.com</p>
+                                </div>
+                            </div>
+                            <div class="contact-item">
+                                <div class="contact-icon">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                </div>
+                                <div class="contact-text">
+                                    <h4>Address</h4>
+                                    <p>Rajabazar bailey road near pillar no-51 patna 800014</p>
+                                </div>
+                            </div>
+                            <div class="contact-item">
+                                <div class="contact-icon">
+                                    <i class="fas fa-clock"></i>
+                                </div>
+                                <div class="contact-text">
+                                    <h4>Working Hours</h4>
+                                    <p>Mon-Sat: 9:00 AM - 7:00 PM</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="offer-box">
+                            <h4>Limited Time Special Offer!</h4>
+                            <p>Washing Machine & Refrigerator Service at just ₹49 only! Book now to avail this special offer.</p>
+                        </div>
+                    </div>
+                    <div class="contact-form">
+                        <h3>Send Us a Message</h3>
+                        <form id="contactForm">
+                            <div class="form-group">
+                                <label for="name">Your Name</label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email Address</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Phone Number</label>
+                                <input type="tel" id="phone" name="phone" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Your Message</label>
+                                <textarea id="message" name="message" rows="4" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-full">Send Message</button>
+                        </form>
+                        <div id="formSuccess" class="form-success">
+                            <i class="fas fa-check-circle"></i> Your message has been sent successfully!
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <img src="images/logo2.png" alt="Fixxer Logo" class="footer-logo">
+                    <p>Your trusted partner for all appliance repair needs. Fast, reliable, and professional service guaranteed.</p>
+                    <div class="social-icons">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Our Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">AC Installation & Repair</a></li>
+                        <li><a href="#">Refrigerator Repair</a></li>
+                        <li><a href="#">Washing Machine Repair</a></li>
+                        <li><a href="#">Microwave Repair</a></li>
+                        <li><a href="#">General Appliance Service</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Newsletter</h4>
+                    <p>Subscribe to our newsletter for tips, offers, and updates.</p>
+                    <form class="newsletter-form">
+                        <div class="form-group">
+                            <input type="email" placeholder="Your email address" required>
+                            <button type="submit" aria-label="Subscribe"><i class="fas fa-paper-plane"></i></button>
+                        </div>
+                    </form>
+                    <p class="text-small">By subscribing, you agree to our <a href="#" class="highlight">Privacy Policy</a>.</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Fixxer. All rights reserved.</p>
+                <div class="footer-bottom-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Sitemap</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/917004771388" class="whatsapp-btn" aria-label="Contact us on WhatsApp" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Booking Modal -->
+    <div class="modal" id="bookingModal">
+        <div class="modal-content">
+            <div class="close-modal">
+                <i class="fas fa-times"></i>
+            </div>
+            <div class="modal-header">
+                <h3>Book an Appointment</h3>
+                <p>Fill out the form below to schedule a service appointment.</p>
+            </div>
+            <form id="bookingForm">
+                <div class="form-group">
+                    <label for="applianceType">Appliance Type</label>
+                    <select id="applianceType" name="applianceType" required>
+                        <option value="">Select Appliance Type</option>
+                        <option value="ac_installation">AC Installation (₹999)</option>
+                        <option value="ac_service">AC Service (₹499)</option>
+                        <option value="ac_repair">AC Repair (₹349)</option>
+                        <option value="refrigerator">Double door Refrigerator (₹49)</option>
+                        <option value="washing_machine">Fully Automatic Washing Machine (₹49)</option>
+                        <option value="microwave">Microwave and more (₹49)</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="issueDescription">Issue Description</label>
+                    <textarea id="issueDescription" name="issueDescription" rows="3" placeholder="Please describe the issue you're experiencing" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="appointmentDate">Preferred Date</label>
+                    <input type="date" id="appointmentDate" name="appointmentDate" required>
+                </div>
+                <div class="form-group">
+                    <label for="preferredTime">Preferred Time</label>
+                    <select id="preferredTime" name="preferredTime" required>
+                        <option value="">Select Time Slot</option>
+                        <option value="morning">Morning (9:00 AM - 12:00 PM)</option>
+                        <option value="afternoon">Afternoon (12:00 PM - 3:00 PM)</option>
+                        <option value="evening">Evening (3:00 PM - 7:00 PM)</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="bookingName">Your Name</label>
+                    <input type="text" id="bookingName" name="bookingName" required>
+                </div>
+                <div class="form-group">
+                    <label for="bookingPhone">Phone Number</label>
+                    <input type="tel" id="bookingPhone" name="bookingPhone" required>
+                </div>
+                <div class="form-group">
+                    <label for="bookingEmail">Email Address</label>
+                    <input type="email" id="bookingEmail" name="bookingEmail" required>
+                </div>
+                <button type="submit" class="btn btn-primary btn-full">Book Appointment</button>
+            </form>
+            <div id="bookingSuccess" class="form-success">
+                <i class="fas fa-check-circle"></i> Your appointment has been booked successfully! We'll contact you shortly to confirm.
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+    <script src="whatsapp-integration.js"></script>
+</body>
+</html>

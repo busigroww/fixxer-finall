@@ -1,0 +1,883 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fixxer Admin - Spare Parts Pricing</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #dc2626;
+            --secondary-color: #facc15;
+            --text-color: #1f2937;
+            --light-text: #6b7280;
+            --background-color: #ffffff;
+            --light-background: #f9fafb;
+            --dark-background: #111827;
+            --border-radius: 8px;
+            --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--text-color);
+            line-height: 1.6;
+            background-color: var(--light-background);
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background-color: white;
+            box-shadow: var(--box-shadow);
+            padding: 15px 0;
+            margin-bottom: 30px;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 40px;
+            margin-right: 10px;
+        }
+
+        .logo h1 {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+        }
+
+        .admin-panel {
+            background-color: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+
+        .panel-header {
+            margin-bottom: 20px;
+            border-bottom: 1px solid #e5e7eb;
+            padding-bottom: 15px;
+        }
+
+        .panel-header h2 {
+            font-size: 1.5rem;
+        }
+
+        .panel-header p {
+            color: var(--light-text);
+        }
+
+        .search-bar {
+            display: flex;
+            margin-bottom: 20px;
+        }
+
+        .search-bar input {
+            flex: 1;
+            padding: 10px 15px;
+            border: 1px solid #e5e7eb;
+            border-radius: var(--border-radius) 0 0 var(--border-radius);
+            font-size: 1rem;
+        }
+
+        .search-bar button {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 0 20px;
+            border-radius: 0 var(--border-radius) var(--border-radius) 0;
+            cursor: pointer;
+        }
+
+        .parts-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .parts-table th,
+        .parts-table td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .parts-table th {
+            background-color: var(--light-background);
+            font-weight: 600;
+        }
+
+        .parts-table tr:hover {
+            background-color: var(--light-background);
+        }
+
+        .price-input {
+            width: 100px;
+            padding: 8px;
+            border: 1px solid #e5e7eb;
+            border-radius: 4px;
+        }
+
+        .action-btn {
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        .edit-btn {
+            color: #3b82f6;
+        }
+
+        .save-btn {
+            color: #10b981;
+        }
+
+        .cancel-btn {
+            color: #ef4444;
+        }
+
+        .action-btn:hover {
+            opacity: 0.8;
+        }
+
+        .add-part-form {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #e5e7eb;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 10px 15px;
+            border: 1px solid #e5e7eb;
+            border-radius: var(--border-radius);
+            font-size: 1rem;
+        }
+
+        .form-row {
+            display: flex;
+            gap: 15px;
+        }
+
+        .form-row .form-group {
+            flex: 1;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .btn:hover {
+            background-color: #b91c1c;
+        }
+
+        .btn-secondary {
+            background-color: #6b7280;
+        }
+
+        .btn-secondary:hover {
+            background-color: #4b5563;
+        }
+
+        .export-import {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #e5e7eb;
+        }
+
+        .notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 15px 20px;
+            background-color: #10b981;
+            color: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            transform: translateX(120%);
+            transition: transform 0.3s ease;
+            z-index: 1000;
+        }
+
+        .notification.show {
+            transform: translateX(0);
+        }
+
+        .notification.error {
+            background-color: #ef4444;
+        }
+
+        .pagination {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .pagination button {
+            padding: 8px 12px;
+            margin: 0 5px;
+            background-color: white;
+            border: 1px solid #e5e7eb;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .pagination button.active {
+            background-color: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+        }
+
+        @media (max-width: 768px) {
+            .form-row {
+                flex-direction: column;
+                gap: 0;
+            }
+            
+            .parts-table {
+                font-size: 0.9rem;
+            }
+            
+            .price-input {
+                width: 80px;
+            }
+            
+            .export-import {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <img src="images/logo.png" alt="Fixxer Logo">
+                    <h1>Admin Panel</h1>
+                </div>
+                <a href="index.html" class="btn btn-secondary">Back to Website</a>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="admin-panel">
+            <div class="panel-header">
+                <h2>Spare Parts Pricing Management</h2>
+                <p>Update prices, add new parts, or remove existing ones</p>
+            </div>
+
+            <div class="search-bar">
+                <input type="text" id="searchParts" placeholder="Search for parts...">
+                <button><i class="fas fa-search"></i></button>
+            </div>
+
+            <table class="parts-table">
+                <thead>
+                    <tr>
+                        <th>Item Name</th>
+                        <th>Price (₹)</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="partsTableBody">
+                    <!-- Table rows will be populated by JavaScript -->
+                </tbody>
+            </table>
+
+            <div class="pagination" id="pagination">
+                <!-- Pagination buttons will be added by JavaScript -->
+            </div>
+
+            <div class="add-part-form">
+                <h3>Add New Part</h3>
+                <form id="addPartForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="newPartName">Part Name</label>
+                            <input type="text" id="newPartName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="newPartPrice">Price (₹)</label>
+                            <input type="number" id="newPartPrice" min="0" step="0.01" required>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn">Add Part</button>
+                </form>
+            </div>
+
+            <div class="export-import">
+                <div>
+                    <button id="exportBtn" class="btn">Export Data (CSV)</button>
+                </div>
+                <div>
+                    <input type="file" id="importFile" accept=".csv" style="display: none;">
+                    <button id="importBtn" class="btn btn-secondary">Import Data (CSV)</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="notification" id="notification">
+        Changes saved successfully!
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize spare parts data from localStorage or use default data
+            let sparePartsData = JSON.parse(localStorage.getItem('sparePartsData')) || [
+                {
+                    "Item Name": "WHIRLPOOL SPIN CAP",
+                    "Selling Price (Customer)": 70.0
+                },
+                {
+                    "Item Name": "SAMSUNG SPIN CAP",
+                    "Selling Price (Customer)": 70.0
+                },
+                {
+                    "Item Name": "VIDEOCON SPIN CAP",
+                    "Selling Price (Customer)": 70.0
+                },
+                {
+                    "Item Name": "LG WASH PULLY",
+                    "Selling Price (Customer)": 120.0
+                },
+                {
+                    "Item Name": "SAMSUNG WASH PULLY",
+                    "Selling Price (Customer)": 120.0
+                },
+                {
+                    "Item Name": "GODREJ WASH PULLY",
+                    "Selling Price (Customer)": 120.0
+                },
+                {
+                    "Item Name": "WHIRLPOOL WASH PULLY",
+                    "Selling Price (Customer)": 120.0
+                },
+                {
+                    "Item Name": "BREAK PLATE MIX",
+                    "Selling Price (Customer)": 120.0
+                },
+                {
+                    "Item Name": "WHIRLPOOL KNOB",
+                    "Selling Price (Customer)": 40.0
+                },
+                {
+                    "Item Name": "PDS KNOB",
+                    "Selling Price (Customer)": 30.0
+                },
+                {
+                    "Item Name": "GEAR BOX ASSEMBLY",
+                    "Selling Price (Customer)": 1200.0
+                },
+                {
+                    "Item Name": "GEAR BOX ASSEMBLY VIDEOCON",
+                    "Selling Price (Customer)": 1200.0
+                },
+                {
+                    "Item Name": "GEAR BOX ASSEMBLY GODREJ",
+                    "Selling Price (Customer)": 1200.0
+                },
+                {
+                    "Item Name": "GEAR BOX ASSEMBLY SAMSUNG",
+                    "Selling Price (Customer)": 1200.0
+                },
+                {
+                    "Item Name": "GEAR BOX ASSEMBLY WHIRLPOOL",
+                    "Selling Price (Customer)": 1200.0
+                },
+                {
+                    "Item Name": "GEAR BOX ASSEMBLY LG",
+                    "Selling Price (Customer)": 1200.0
+                },
+                {
+                    "Item Name": "GEAR BOX ASSEMBLY IFB",
+                    "Selling Price (Customer)": 1200.0
+                },
+                {
+                    "Item Name": "GEAR BOX ASSEMBLY ONIDA",
+                    "Selling Price (Customer)": 1200.0
+                },
+                {
+                    "Item Name": "GEAR BOX ASSEMBLY PANASONIC",
+                    "Selling Price (Customer)": 1200.0
+                },
+                {
+                    "Item Name": "GEAR BOX ASSEMBLY HAIER",
+                    "Selling Price (Customer)": 1200.0
+                }
+            ];
+
+            // Pagination variables
+            const itemsPerPage = 10;
+            let currentPage = 1;
+            let filteredData = [...sparePartsData];
+
+            // DOM elements
+            const partsTableBody = document.getElementById('partsTableBody');
+            const searchInput = document.getElementById('searchParts');
+            const addPartForm = document.getElementById('addPartForm');
+            const newPartName = document.getElementById('newPartName');
+            const newPartPrice = document.getElementById('newPartPrice');
+            const exportBtn = document.getElementById('exportBtn');
+            const importBtn = document.getElementById('importBtn');
+            const importFile = document.getElementById('importFile');
+            const notification = document.getElementById('notification');
+            const pagination = document.getElementById('pagination');
+
+            // Initialize table
+            renderTable();
+            renderPagination();
+
+            // Event listeners
+            searchInput.addEventListener('input', function() {
+                filterData();
+                currentPage = 1;
+                renderTable();
+                renderPagination();
+            });
+
+            addPartForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                addNewPart();
+            });
+
+            exportBtn.addEventListener('click', exportData);
+            importBtn.addEventListener('click', function() {
+                importFile.click();
+            });
+
+            importFile.addEventListener('change', importData);
+
+            // Functions
+            function renderTable() {
+                partsTableBody.innerHTML = '';
+                
+                const startIndex = (currentPage - 1) * itemsPerPage;
+                const endIndex = startIndex + itemsPerPage;
+                const paginatedData = filteredData.slice(startIndex, endIndex);
+                
+                paginatedData.forEach((part, index) => {
+                    const row = document.createElement('tr');
+                    row.dataset.index = startIndex + index;
+                    
+                    row.innerHTML = `
+                        <td>${part["Item Name"]}</td>
+                        <td>
+                            <span class="price-display">₹${part["Selling Price (Customer)"]}</span>
+                            <input type="number" class="price-input" value="${part["Selling Price (Customer)"]}" style="display: none;" min="0" step="0.01">
+                        </td>
+                        <td>
+                            <button class="action-btn edit-btn" title="Edit"><i class="fas fa-edit"></i></button>
+                            <button class="action-btn save-btn" title="Save" style="display: none;"><i class="fas fa-save"></i></button>
+                            <button class="action-btn cancel-btn" title="Cancel" style="display: none;"><i class="fas fa-times"></i></button>
+                            <button class="action-btn delete-btn" title="Delete"><i class="fas fa-trash"></i></button>
+                        </td>
+                    `;
+                    
+                    partsTableBody.appendChild(row);
+                });
+                
+                // Add event listeners to buttons
+                addTableButtonListeners();
+            }
+
+            function renderPagination() {
+                pagination.innerHTML = '';
+                
+                const totalPages = Math.ceil(filteredData.length / itemsPerPage);
+                
+                // Previous button
+                const prevBtn = document.createElement('button');
+                prevBtn.innerHTML = '<i class="fas fa-chevron-left"></i>';
+                prevBtn.disabled = currentPage === 1;
+                prevBtn.addEventListener('click', function() {
+                    if (currentPage > 1) {
+                        currentPage--;
+                        renderTable();
+                        renderPagination();
+                    }
+                });
+                pagination.appendChild(prevBtn);
+                
+                // Page buttons
+                let startPage = Math.max(1, currentPage - 2);
+                let endPage = Math.min(totalPages, startPage + 4);
+                
+                if (endPage - startPage < 4 && startPage > 1) {
+                    startPage = Math.max(1, endPage - 4);
+                }
+                
+                for (let i = startPage; i <= endPage; i++) {
+                    const pageBtn = document.createElement('button');
+                    pageBtn.textContent = i;
+                    pageBtn.classList.toggle('active', i === currentPage);
+                    pageBtn.addEventListener('click', function() {
+                        currentPage = i;
+                        renderTable();
+                        renderPagination();
+                    });
+                    pagination.appendChild(pageBtn);
+                }
+                
+                // Next button
+                const nextBtn = document.createElement('button');
+                nextBtn.innerHTML = '<i class="fas fa-chevron-right"></i>';
+                nextBtn.disabled = currentPage === totalPages;
+                nextBtn.addEventListener('click', function() {
+                    if (currentPage < totalPages) {
+                        currentPage++;
+                        renderTable();
+                        renderPagination();
+                    }
+                });
+                pagination.appendChild(nextBtn);
+            }
+
+            function addTableButtonListeners() {
+                // Edit buttons
+                document.querySelectorAll('.edit-btn').forEach(btn => {
+                    btn.addEventListener('click', function() {
+                        const row = this.closest('tr');
+                        row.querySelector('.price-display').style.display = 'none';
+                        row.querySelector('.price-input').style.display = 'inline-block';
+                        row.querySelector('.edit-btn').style.display = 'none';
+                        row.querySelector('.save-btn').style.display = 'inline-block';
+                        row.querySelector('.cancel-btn').style.display = 'inline-block';
+                    });
+                });
+                
+                // Save buttons
+                document.querySelectorAll('.save-btn').forEach(btn => {
+                    btn.addEventListener('click', function() {
+                        const row = this.closest('tr');
+                        const index = parseInt(row.dataset.index);
+                        const newPrice = parseFloat(row.querySelector('.price-input').value);
+                        
+                        if (isNaN(newPrice) || newPrice < 0) {
+                            showNotification('Please enter a valid price', true);
+                            return;
+                        }
+                        
+                        // Update data
+                        filteredData[index]["Selling Price (Customer)"] = newPrice;
+                        
+                        // Find the original index in the full dataset
+                        const originalIndex = sparePartsData.findIndex(part => 
+                            part["Item Name"] === filteredData[index]["Item Name"]
+                        );
+                        
+                        if (originalIndex !== -1) {
+                            sparePartsData[originalIndex]["Selling Price (Customer)"] = newPrice;
+                            saveData();
+                        }
+                        
+                        // Update display
+                        row.querySelector('.price-display').textContent = `₹${newPrice}`;
+                        row.querySelector('.price-display').style.display = 'inline-block';
+                        row.querySelector('.price-input').style.display = 'none';
+                        row.querySelector('.edit-btn').style.display = 'inline-block';
+                        row.querySelector('.save-btn').style.display = 'none';
+                        row.querySelector('.cancel-btn').style.display = 'none';
+                        
+                        showNotification('Price updated successfully');
+                    });
+                });
+                
+                // Cancel buttons
+                document.querySelectorAll('.cancel-btn').forEach(btn => {
+                    btn.addEventListener('click', function() {
+                        const row = this.closest('tr');
+                        const index = parseInt(row.dataset.index);
+                        
+                        // Reset input to original value
+                        row.querySelector('.price-input').value = filteredData[index]["Selling Price (Customer)"];
+                        
+                        // Reset display
+                        row.querySelector('.price-display').style.display = 'inline-block';
+                        row.querySelector('.price-input').style.display = 'none';
+                        row.querySelector('.edit-btn').style.display = 'inline-block';
+                        row.querySelector('.save-btn').style.display = 'none';
+                        row.querySelector('.cancel-btn').style.display = 'none';
+                    });
+                });
+                
+                // Delete buttons
+                document.querySelectorAll('.delete-btn').forEach(btn => {
+                    btn.addEventListener('click', function() {
+                        if (confirm('Are you sure you want to delete this part?')) {
+                            const row = this.closest('tr');
+                            const index = parseInt(row.dataset.index);
+                            
+                            // Find the original index in the full dataset
+                            const partName = filteredData[index]["Item Name"];
+                            const originalIndex = sparePartsData.findIndex(part => 
+                                part["Item Name"] === partName
+                            );
+                            
+                            if (originalIndex !== -1) {
+                                sparePartsData.splice(originalIndex, 1);
+                                saveData();
+                            }
+                            
+                            // Remove from filtered data
+                            filteredData = filteredData.filter(part => part["Item Name"] !== partName);
+                            
+                            // Re-render table
+                            if (filteredData.length <= (currentPage - 1) * itemsPerPage && currentPage > 1) {
+                                currentPage--;
+                            }
+                            
+                            renderTable();
+                            renderPagination();
+                            showNotification('Part deleted successfully');
+                        }
+                    });
+                });
+            }
+
+            function filterData() {
+                const searchTerm = searchInput.value.trim().toLowerCase();
+                
+                if (searchTerm === '') {
+                    filteredData = [...sparePartsData];
+                } else {
+                    filteredData = sparePartsData.filter(part => 
+                        part["Item Name"].toLowerCase().includes(searchTerm)
+                    );
+                }
+            }
+
+            function addNewPart() {
+                const partName = newPartName.value.trim();
+                const partPrice = parseFloat(newPartPrice.value);
+                
+                if (partName === '') {
+                    showNotification('Please enter a part name', true);
+                    return;
+                }
+                
+                if (isNaN(partPrice) || partPrice < 0) {
+                    showNotification('Please enter a valid price', true);
+                    return;
+                }
+                
+                // Check if part already exists
+                const existingPart = sparePartsData.find(part => 
+                    part["Item Name"].toLowerCase() === partName.toLowerCase()
+                );
+                
+                if (existingPart) {
+                    showNotification('A part with this name already exists', true);
+                    return;
+                }
+                
+                // Add new part
+                const newPart = {
+                    "Item Name": partName,
+                    "Selling Price (Customer)": partPrice
+                };
+                
+                sparePartsData.push(newPart);
+                saveData();
+                
+                // Reset form
+                newPartName.value = '';
+                newPartPrice.value = '';
+                
+                // Update filtered data and re-render
+                filterData();
+                renderTable();
+                renderPagination();
+                
+                showNotification('New part added successfully');
+            }
+
+            function exportData() {
+                // Create CSV content
+                let csvContent = 'Item Name,Selling Price (Customer)\n';
+                
+                sparePartsData.forEach(part => {
+                    csvContent += `"${part["Item Name"]}",${part["Selling Price (Customer)"]}\n`;
+                });
+                
+                // Create download link
+                const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+                const url = URL.createObjectURL(blob);
+                const link = document.createElement('a');
+                link.setAttribute('href', url);
+                link.setAttribute('download', 'fixxer_spare_parts.csv');
+                link.style.visibility = 'hidden';
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+                
+                showNotification('Data exported successfully');
+            }
+
+            function importData(e) {
+                const file = e.target.files[0];
+                
+                if (!file) {
+                    return;
+                }
+                
+                const reader = new FileReader();
+                
+                reader.onload = function(event) {
+                    try {
+                        const csvData = event.target.result;
+                        const lines = csvData.split('\n');
+                        
+                        // Skip header row
+                        const newData = [];
+                        
+                        for (let i = 1; i < lines.length; i++) {
+                            if (lines[i].trim() === '') continue;
+                            
+                            // Handle quoted values with commas
+                            let values = [];
+                            let inQuotes = false;
+                            let currentValue = '';
+                            
+                            for (let j = 0; j < lines[i].length; j++) {
+                                const char = lines[i][j];
+                                
+                                if (char === '"') {
+                                    inQuotes = !inQuotes;
+                                } else if (char === ',' && !inQuotes) {
+                                    values.push(currentValue);
+                                    currentValue = '';
+                                } else {
+                                    currentValue += char;
+                                }
+                            }
+                            
+                            values.push(currentValue); // Add the last value
+                            
+                            if (values.length >= 2) {
+                                const partName = values[0].replace(/"/g, '').trim();
+                                const partPrice = parseFloat(values[1]);
+                                
+                                if (partName && !isNaN(partPrice) && partPrice >= 0) {
+                                    newData.push({
+                                        "Item Name": partName,
+                                        "Selling Price (Customer)": partPrice
+                                    });
+                                }
+                            }
+                        }
+                        
+                        if (newData.length > 0) {
+                            if (confirm(`Import ${newData.length} parts? This will replace your current data.`)) {
+                                sparePartsData = newData;
+                                saveData();
+                                filterData();
+                                currentPage = 1;
+                                renderTable();
+                                renderPagination();
+                                showNotification('Data imported successfully');
+                            }
+                        } else {
+                            showNotification('No valid data found in the file', true);
+                        }
+                    } catch (error) {
+                        console.error('Error parsing CSV:', error);
+                        showNotification('Error parsing CSV file', true);
+                    }
+                };
+                
+                reader.readAsText(file);
+                
+                // Reset file input
+                e.target.value = '';
+            }
+
+            function saveData() {
+                localStorage.setItem('sparePartsData', JSON.stringify(sparePartsData));
+                
+                // Also update the main website's data
+                // This assumes the script.js file uses the same variable name
+                try {
+                    // Create or update a script element with the updated data
+                    let scriptElement = document.getElementById('sparePartsDataScript');
+                    
+                    if (!scriptElement) {
+                        scriptElement = document.createElement('script');
+                        scriptElement.id = 'sparePartsDataScript';
+                        document.body.appendChild(scriptElement);
+                    }
+                    
+                    scriptElement.textContent = `
+                        // Updated spare parts data
+                        const sparePartsData = ${JSON.stringify(sparePartsData, null, 2)};
+                    `;
+                } catch (error) {
+                    console.error('Error updating website data:', error);
+                }
+            }
+
+            function showNotification(message, isError = false) {
+                notification.textContent = message;
+                notification.className = 'notification';
+                
+                if (isError) {
+                    notification.classList.add('error');
+                }
+                
+                notification.classList.add('show');
+                
+                setTimeout(() => {
+                    notification.classList.remove('show');
+                }, 3000);
+            }
+        });
+    </script>
+</body>
+</html>
